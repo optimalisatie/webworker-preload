@@ -1,0 +1,29 @@
+{
+  "name": "webworker-preload",
+  "version": "0.0.1",
+  "description": "Web Worker based preloading of website resources such as javascript. Allows for delayed execution of javascript and enhanced above the fold optimization.",
+  "author": {
+    "name": "info@pagespeed.pro",
+    "email": "info@pagespeed.pro",
+    "web": "pagespeed.pro"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/optimalisatie/webworker-preload/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/optimalisatie/webworker-preload.git"
+  },
+  "engines": {
+    "node": "~0.10"
+  },
+  "dependencies": {
+    "threadpool-js": "0.5.0"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-uglify": "latest",
+    "matchdep": "^1.0.1"
+  }
+}
