@@ -1,7 +1,10 @@
 /**
  * Web Worker Resource Preloader
  *
- * @author  PageSpeed.pro <info@pagespeed.pro>
+ * @author  https://pagespeed.pro
+ *          https://optimalisatie.nl
+ * 
+ * @version  0.0.1
  * @link https://github.com/optimalisatie/webworker-preload
  */
 
