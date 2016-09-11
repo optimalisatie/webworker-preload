@@ -6,7 +6,7 @@ The size is <4kb.
 
 ## Usage
 
-The tool consists of the method `preloadww` that will accept an array with resources to preload. The array should consist of URL's and optionally a resource specific callback. Instead of entering URI strings it is possible to provide an array with configuration objects.
+The tool consists of the method `preloadww` that will accept an array with resources to preload. The array should consist of URL's and optionally a resource specific callback. 
 
 The ``preloadww`` method accepts an onLoad callback and an onError callback. The onLoad callback is always called upon completion, also when (some) files are on error.
 
