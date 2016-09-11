@@ -6,9 +6,9 @@ The size is <4kb.
 
 ## Usage
 
-The tool consists of the method `window.preloadww` that will accept an array with resources to preload. The array should consist of URL's and optionally a resource specific callback. Instead of entering URI strings it is possible to provide an array with configuration objects.
+The tool consists of the method `preloadww` that will accept an array with resources to preload. The array should consist of URL's and optionally a resource specific callback. Instead of entering URI strings it is possible to provide an array with configuration objects.
 
-The preloadww method accepts an onLoad callback and an onError callback. The onLoad callback is always called upon completion, also when (some) files are on error.
+The ``preloadww`` method accepts an onLoad callback and an onError callback. The onLoad callback is always called upon completion, also when (some) files are on error.
 
 The onLoad method will resolve with an array with all the URI's that have been preloaded.
 
@@ -20,7 +20,7 @@ window.preloadww(['/css/file1.css','/js/scripts.js','/js/mobile.js'], function o
 	console.error('preload failed',error);
 });
 
-// resource specific onload callback for script file
+// resource specific onload callback for script file, by providing an array as resource with at index 0 the URI and at index 1 the callback function
 window.preloadww(['/css/file1.css',['/js/scripts.js', function scriptLoaded(status) { 
 	if (status === 'ok') { 
 		
