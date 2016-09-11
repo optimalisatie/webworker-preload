@@ -59,7 +59,7 @@
                      */
                     if (data[i] instanceof Array) {
 
-                        if (data[i].length < 2 || data[i].length > 3) {
+                        if (data[i].length < 1 || data[i].length > 3) {
 
                             // not recognized, skip
                             throw new Error('wwpreload: array config (index '+i+') not valid');
@@ -254,6 +254,23 @@
         var loadedFiles = [];
 
         /**
+         * Handle errors
+         */
+        var handleError = function(error) {
+            
+            if (typeof error === 'object' && error.preventDefault) {
+                error.preventDefault();
+            }
+
+            // output error to console
+            consoleError('preloadww:',error);
+
+            if (onError) {
+                onError(error);
+            }
+        };
+
+        /**
          * Process data with resources
          */
         var l = data.length;
@@ -261,7 +278,7 @@
             
             // array config (minimal size)
             if (data[i] instanceof Array) {
-                if (data[i].length < 2 || data[i].length > 3) {
+                if (data[i].length < 1 || data[i].length > 3) {
                     handleError('invalid resource config at index',i,data[i]);
                     return;
                 }
@@ -275,8 +292,6 @@
                     var callbackID = ++RESOURCE_ONLOAD_CALLBACK_COUNT;
                     RESOURCE_ONLOAD_CALLBACKS['cb' + callbackID] = data[i][1];
                     data[i][1] = callbackID;
-
-                    console.log('created callback',data[i],RESOURCE_ONLOAD_CALLBACKS['cb' + callbackID]);
                 }
 
                 // loaded files list
@@ -340,27 +355,9 @@
             return;
         }
 
-        console.log('resources',resources,data);
-
         // start web worker
         var worker = new Worker(workerUri);
 
-        /**
-         * Handle errors
-         */
-        var handleError = function(error) {
-            
-            if (typeof error === 'object' && error.preventDefault) {
-                error.preventDefault();
-            }
-
-            // output error to console
-            consoleError('preloadww:',error);
-
-            if (onError) {
-                onError(error);
-            }
-        };
 
         // listen for message
         worker.addEventListener('message', function(event) {
@@ -392,8 +389,6 @@
                  * Resource onload handler
                  */
                 if (parseInt(response[0]) === 2) {
-
-                    console.log('resource onload',response);
 
                     // loading of resource completed, call specific callback
                     var callbackID = response[1];
@@ -430,14 +425,8 @@
 
         // array of objects/strings, use as is
         if (data instanceof Array) {
-            if (data[0] instanceof Array) {
-
-                // array of array config
-            } else {
-
-                data = [data];
-            }
-        } else if (typeof data === 'object' && data.type && data.uri) {
+            
+        } else if (typeof data === 'object' && data.uri) {
 
             // single object config
             data = [data];
