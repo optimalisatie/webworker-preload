@@ -6,11 +6,11 @@ The size is <4kb.
 
 ## Usage
 
-The tool consists of just 1 method that will accept an array with resources to preload. The array should consist of URL's and optionally a callback. Instead of entering URI strings it is possible to provide an array with objects.
+The tool consists of the method `window.preloadww` that will accept an array with resources to preload. The array should consist of URL's and optionally a resource specific callback. Instead of entering URI strings it is possible to provide an array with configuration objects.
 
-The method accepts an onLoad callback and onError callback. The onLoad callback is always called upon completion, also when (some) files are on error.
+The preloadww method accepts an onLoad callback and an onError callback. The onLoad callback is always called upon completion, also when (some) files are on error.
 
-The onLoad method will resolve with an array with URI's that have been preloaded.
+The onLoad method will resolve with an array with all the URI's that have been preloaded.
 
 ```javascript
 // simple array with string URI's to preload
