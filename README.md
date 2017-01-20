@@ -1,6 +1,6 @@
 ## Web Worker Resource Preloader (concept) [![npm version](https://badge.fury.io/js/webworker-preload.svg)](http://badge.fury.io/js/webworker-preload)
 
-_webworker-preload_ is a tool for preloading of resources such as javascript, CSS and image files using a [HTML5 Web Worker](http://www.html5rocks.com/en/tutorials/workers/basics/).
+_webworker-preload_ is a tool for preloading resources such as javascript, CSS and image files using a [HTML5 Web Worker](http://www.html5rocks.com/en/tutorials/workers/basics/).
 
 ## Usage
 
