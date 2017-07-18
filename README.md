@@ -68,7 +68,7 @@ npm install --save webworker-preload
 
 ## Inspiration
 
-The following article from [Matt Seeley](https://github.com/mseeley) provided inspiration for this tool.
+The following proof of concept provided inspiration for this tool.
 
 https://gist.github.com/mseeley/9321422
 
